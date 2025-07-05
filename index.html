@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR코드 특인 프로그램</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 입력 화면 -->
+    <div id="input-screen" class="screen active">
+        <div class="container">
+            <div class="pixel-frame">
+                <div class="pixel-corner top-left"></div>
+                <div class="pixel-corner top-right"></div>
+                <div class="pixel-corner bottom-left"></div>
+                <div class="pixel-corner bottom-right"></div>
+
+                <h1 class="title">🧙 학생 인증 시스템 🧙‍♂️</h1>
+
+                <div class="input-section">
+                    <div class="input-notice">
+                        <p class="input-notice-text">
+                            <img src="QR이모지.png" alt="QR 이모지"
+                                style="vertical-align: middle; width: 50px; height: 50px; margin-right: 10px;">
+                            QR코드를 스캔해주세요.
+                        </p>
+                        <p>또는</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="student-id">학번 입력</label>
+                        <div class="pixel-input-container">
+                            <input type="text" id="student-id" placeholder="학번을 입력하세요 (예: 31001)" maxlength="5"
+                                class="pixel-input">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+
+                    <button id="verify-btn" class="verify-btn pixel-btn">
+                        <span class="btn-text">▶ 인증하기</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+
+                <div class="pixel-decoration">
+                    <div class="star star1">✨</div>
+                    <div class="star star2">⭐</div>
+                    <div class="star star3">🌟</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 출력 화면 -->
+    <div id="output-screen" class="screen">
+        <div class="container">
+            <div class="pixel-frame">
+                <div class="pixel-corner top-left"></div>
+                <div class="pixel-corner top-right"></div>
+                <div class="pixel-corner bottom-left"></div>
+                <div class="pixel-corner bottom-right"></div>
+
+                <div class="student-card">
+                    <div class="student-photo">
+                        <img id="student-image" src="https://via.placeholder.com/150x200/4A90E2/FFFFFF?text=학생사진"
+                            alt="학생 사진">
+                        <div class="photo-border"></div>
+                    </div>
+                    <div class="student-info">
+                        <h2 id="student-name">홍길동</h2>
+                        <div class="grade-badge" id="grade-badge">
+                            <span id="grade-text">Lv.3 Senior</span>
+                        </div>
+                        <div class="student-details">
+                            <p><strong>🎯 학번:</strong> <span id="display-student-id">2024001</span></p>
+                            <p><strong>📚 학년:</strong> <span id="display-grade">3학년</span></p>
+                            <p><strong>🏫 반:</strong> <span id="display-class">1반</span></p>
+                        </div>
+                    </div>
+                </div>
+                <button id="back-to-input" class="back-btn pixel-btn">
+                    <span class="btn-text">← 다시 인증하기</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 에러 화면 -->
+    <div id="error-screen" class="screen">
+        <div class="container">
+            <div class="pixel-frame">
+                <div class="pixel-corner top-left"></div>
+                <div class="pixel-corner top-right"></div>
+                <div class="pixel-corner bottom-left"></div>
+                <div class="pixel-corner bottom-right"></div>
+
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <h2>오류 발생</h2>
+                    <p id="error-message">QR 코드가 인식되지 않았습니다.<br>또는 학번이 잘못되었습니다.</p>
+                    <p class="error-hint">다시 시도해주세요.</p>
+                    <button id="error-back-btn" class="back-btn pixel-btn">
+                        <span class="btn-text">← 뒤로 가기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="approval.js"></script>
+</body>
+
+</html>

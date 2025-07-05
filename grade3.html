@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3학년 승인 페이지</title>
+    <link rel="stylesheet" href="grade3.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="student-info-card">
+            <div class="student-photo">
+                <img src="https://via.placeholder.com/200x250/4A90E2/FFFFFF?text=3학년학생" alt="학생 사진">
+                <img class="laptop-img" src="노트북.png" alt="소프트과">
+                <img class="robot-img" src="로봇.png" alt="자동화과">
+                <img class="반도체-img" src="반도체.png" alt="전자과">
+                <img class="pallete-img" src="팔레트.png" alt="디자인과">
+
+
+            </div>
+            <div class="student-details">
+                <div class="name-container">
+                    <h2 class="student-name">이윤아</h2>
+                    <img class="blue-badge" src="파란색뱃지.png" alt="파란색뱃지">
+
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <label>학년:</label>
+                        <span>3학년</span>
+                    </div>
+                    <div class="info-item">
+                        <label>반:</label>
+                        <span id="class-number">반</span>
+                    </div>
+                    <div class="info-item">
+                        <label>번호:</label>
+                        <span id="student-number">번</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="approval-section">
+
+            <div class="status-card approved">
+                <div class="status-icon">✅</div>
+                <div class="status-text">
+                    <h4>승인 완료</h4>
+                    <p>3학년 학생으로 인증되었습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+
+            <button class="btn-secondary" onclick="window.location.href='index.html'">처음으로</button>
+        </div>
+    </div>
+
+    <script src="approval.js"></script>
+</body>
+
+</html>

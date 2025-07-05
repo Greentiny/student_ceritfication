@@ -1,0 +1,524 @@
+/* 픽셀 스타일 레트로 게임 UI - 마법학교 테마 */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* 기본 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배경 - 마법학교 분위기 */
+body {
+    font-family: 'Press Start 2P', 'VT323', monospace;
+    background: linear-gradient(135deg, #2c003e 0%, #1c1c3c 50%, #2c003e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+/* 별 반짝임 배경 효과 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ffff00, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #ffff00, transparent),
+        radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s ease-in-out infinite;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* 컨테이너 */
+.container {
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+/* 픽셀 프레임 */
+.pixel-frame {
+    background: #1a0f2e;
+    border: 4px solid #00ff00;
+    border-radius: 0;
+    padding: 40px;
+    position: relative;
+    box-shadow:
+        0 0 0 4px #1a0f2e,
+        0 0 0 8px #00ff00,
+        0 8px 0 0 #1a0f2e,
+        0 0 20px rgba(0, 255, 0, 0.5);
+    animation: frameGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes frameGlow {
+    0% {
+        box-shadow: 0 0 0 4px #1a0f2e, 0 0 0 8px #00ff00, 0 8px 0 0 #1a0f2e, 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 4px #1a0f2e, 0 0 0 8px #00ff00, 0 8px 0 0 #1a0f2e, 0 0 30px rgba(0, 255, 0, 0.8);
+    }
+}
+
+/* 픽셀 코너 장식 */
+.pixel-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00ff00;
+}
+
+.pixel-corner.top-left {
+    top: -2px;
+    left: -2px;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.pixel-corner.top-right {
+    top: -2px;
+    right: -2px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.pixel-corner.bottom-left {
+    bottom: -2px;
+    left: -2px;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.pixel-corner.bottom-right {
+    bottom: -2px;
+    right: -2px;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+/* 제목 */
+.title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00ff00;
+    text-shadow:
+        2px 2px 0px #1a0f2e,
+        0 0 10px #00ff00;
+    animation: titlePulse 2s ease-in-out infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes titlePulse {
+    0% {
+        text-shadow: 2px 2px 0px #1a0f2e, 0 0 10px #00ff00;
+    }
+
+    100% {
+        text-shadow: 2px 2px 0px #1a0f2e, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+}
+
+/* 입력 섹션 */
+.input-section {
+    text-align: center;
+}
+
+.input-notice {
+    margin-bottom: 30px;
+}
+
+.input-notice .input-notice-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: #cccccc;
+    line-height: 1.6;
+    text-shadow: 1px 1px 0px #1a0f2e;
+    margin: 0;
+}
+
+.input-notice p:nth-child(2) {
+    margin-top: 18px;
+    /* 위쪽 여백 */
+    margin-bottom: 18px;
+    /* 아래쪽 여백 */
+}
+
+/* 입력 그룹 */
+.input-group {
+    margin-bottom: 30px;
+}
+
+.input-group label {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    color: #00ff00;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+/* 픽셀 입력창 */
+.pixel-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.pixel-input {
+    font-family: 'VT323', monospace;
+    font-size: 2.5rem;
+    background: #ffffff;
+    border: 3px solid #00ff00;
+    border-radius: 0;
+    padding: 10px 0px;
+    width: 300px;
+    text-align: center;
+
+    box-shadow: 0 0 0 3px #1a0f2e, 0 4px 0 0 #00ff00;
+    transition: all 0.2s ease;
+}
+
+.pixel-input:focus {
+    outline: none;
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 4px 0 0 #00ff00,
+        0 0 15px rgba(0, 255, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.pixel-input::placeholder {
+    color: #888888;
+    font-size: 1rem;
+}
+
+/* 픽셀 버튼 */
+.pixel-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    background: #00ff00;
+    color: #1a0f2e;
+    border: none;
+    border-radius: 0;
+    padding: 20px 40px;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 6px 0 0 #1a0f2e;
+    transition: all 0.1s ease;
+    overflow: hidden;
+}
+
+.pixel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 8px 0 0 #1a0f2e,
+        0 0 20px rgba(0, 255, 0, 0.6);
+}
+
+.pixel-btn:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 2px 0 0 #1a0f2e;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.pixel-btn:hover .btn-glow {
+    left: 100%;
+}
+
+/* 장식 요소 */
+.pixel-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: starFloat 3s ease-in-out infinite;
+}
+
+.star1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.star2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.star3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* 화면 전환 */
+.screen {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* 학생 카드 (출력 화면) */
+.student-card {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #1a0f2e;
+    border: 3px solid #00ff00;
+    border-radius: 0;
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 4px 0 0 #00ff00;
+}
+
+.student-photo {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.student-photo img {
+    width: 150px;
+    height: 200px;
+    border: 3px solid #00ff00;
+    border-radius: 0;
+    object-fit: cover;
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 4px 0 0 #00ff00;
+}
+
+.photo-border {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid #00ff00;
+    border-radius: 0;
+    animation: borderPulse 2s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.student-info {
+    flex: 1;
+}
+
+.student-info h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #00ff00;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+.grade-badge {
+    display: inline-block;
+    background: #ff6b35;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+.student-details p {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #cccccc;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+.student-details strong {
+    color: #00ff00;
+}
+
+/* 에러 카드 */
+.error-card {
+    text-align: center;
+    padding: 40px;
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: errorShake 0.5s ease-in-out infinite;
+}
+
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.error-card h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #ff4444;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+.error-card p {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 0px #1a0f2e;
+}
+
+.error-hint {
+    color: #ffaa00 !important;
+    font-weight: bold;
+}
+
+/* 뒤로가기 버튼 */
+.back-btn {
+    background: #666666 !important;
+    color: #ffffff !important;
+}
+
+.back-btn:hover {
+    background: #888888 !important;
+    box-shadow:
+        0 0 0 3px #1a0f2e,
+        0 8px 0 0 #1a0f2e,
+        0 0 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .pixel-frame {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .pixel-input {
+        width: 250px;
+        font-size: 1.2rem;
+    }
+
+    .student-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .student-photo img {
+        width: 120px;
+        height: 160px;
+    }
+}

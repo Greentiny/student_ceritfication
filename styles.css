@@ -223,6 +223,7 @@ body::before {
 .pixel-btn {
     font-family: 'Press Start 2P', monospace;
     font-size: 1rem;
+    font-weight: bold;
     background: #00ff00;
     color: #1a0f2e;
     border: none;

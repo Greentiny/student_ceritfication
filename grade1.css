@@ -10,24 +10,12 @@
 
 body {
     font-family: 'Press Start 2P', 'Orbitron', monospace;
-    background: linear-gradient(135deg, #FFD6E0 100% 0%, #fff 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff3e0;
-    padding: 20px;
-    line-height: 1.6;
-    position: relative;
-    overflow: hidden;
-    font-size: 1.3rem;
-    font-family: 'Press Start 2P', 'Orbitron', monospace;
-
-    /* background: linear-gradient(135deg,  0%, #FFE4EC 30%, #FADADD 60%, ); */
+    background: linear-gradient(135deg, #f9effb 0%, #ffffff 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* color: #333; */
+    color: #fff3e0;
     padding: 20px;
     line-height: 1.6;
     position: relative;
@@ -45,10 +33,10 @@ body::before {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle at 20% 20%, #ededed 1px, transparent 1px),
-        radial-gradient(circle at 80% 40%, #e0e0e0 1px, transparent 1px),
-        radial-gradient(circle at 40% 80%, #ededed 1px, transparent 1px),
-        radial-gradient(circle at 90% 90%, #e0e0e0 1px, transparent 1px);
+        radial-gradient(circle at 20% 20%, rgba(255, 152, 0, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at 80% 40%, rgba(255, 193, 7, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255, 152, 0, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at 90% 90%, rgba(255, 193, 7, 0.3) 1px, transparent 1px);
     background-size: 50px 50px, 30px 30px, 40px 40px, 60px 60px;
     pointer-events: none;
     z-index: -1;
@@ -63,10 +51,10 @@ body::after {
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(45deg, #ededed 25%, transparent 25%),
-        linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #ededed 75%),
-        linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+        linear-gradient(45deg, rgba(255, 152, 0, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 193, 7, 0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 152, 0, 0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 193, 7, 0.1) 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     animation: pixelMove 4s linear infinite;
@@ -84,9 +72,10 @@ body::after {
     }
 }
 
+
 .container {
     border: 4px solid #bdbdbd;
-    background: #fff;
+    background: #ffdddd;
     border-radius: 0;
     padding: 60px;
     box-shadow:
@@ -194,7 +183,7 @@ body::after {
     align-items: center;
     padding: 25px;
     background: hsla(0, 0%, 100%, 0.651);
-    background: #fcfeffa6;
+    background: #ffa7a7a6;
 
     border: 3px solid #767676;
     border-radius: 0;
@@ -350,30 +339,16 @@ body::after {
 
 .student-name {
     font-size: 2.4rem;
-    color: #222;
+    color: #ffffff;
     font-weight: bold;
     letter-spacing: 1px;
-    background: none;
-    text-shadow: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-    background-clip: unset;
+    text-shadow: 2px 2px 0px #ffffff, 0 0 10px #f9a2df;
+    animation: namePulse 2s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #E3F6FF 0%, #B3E5FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
-/* @keyframes namePulse {
-    0% {
-        text-shadow:
-            2px 2px 0px #008CFF,
-            0 0 10px #4FC3F7;
-    }
-
-    100% {
-        text-shadow:
-            2px 2px 0px #008CFF,
-            0 0 20px #4FC3F7,
-            0 0 30px #B3E5FC;
-    }
-} */
 
 .info-grid {
     display: grid;
@@ -451,32 +426,6 @@ body::after {
     margin-bottom: 30px;
 }
 
-/* .approval-section h3 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-    color: #ff9800;
-    text-align: center;
-    letter-spacing: 1px;
-    text-shadow:
-        2px 2px 0px #e65100,
-        0 0 10px #ff9800;
-    animation: sectionTitleGlow 2s ease-in-out infinite alternate;
-} */
-
-/* @keyframes sectionTitleGlow {
-    0% {
-        text-shadow:
-            2px 2px 0px #e65100,
-            0 0 10px #ff9800;
-    }
-
-    100% {
-        text-shadow:
-            2px 2px 0px #e65100,
-            0 0 20px #ff9800,
-            0 0 30px #ff5722;
-    }
-} */
 
 .status-card {
     display: flex;
@@ -493,21 +442,6 @@ body::after {
     animation: statusGlow 3s ease-in-out infinite alternate;
 }
 
-/* @keyframes statusGlow {
-    0% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #ff9800,
-            0 0 10px rgba(255, 152, 0, 0.3);
-    }
-
-    100% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #ff9800,
-            0 0 20px rgba(255, 152, 0, 0.6);
-    }
-} */
 
 .status-card.approved {
     background: #1a3f1a;
@@ -564,7 +498,7 @@ body::after {
     font-size: 1.2rem;
     margin: 0;
     letter-spacing: 0.5px;
-    /* text-shadow: 1px 1px 0px #e65100; */
+
 }
 
 /* 액션 버튼 */
@@ -585,7 +519,7 @@ body::after {
     min-width: 140px;
     letter-spacing: 1px;
     font-family: 'Press Start 2P', 'Orbitron', monospace;
-    background: #ededed;
+    background: #ffffff;
     color: #333;
     border: 2px solid #bdbdbd;
     box-shadow: none;
@@ -594,23 +528,6 @@ body::after {
     text-transform: uppercase;
     animation: buttonGlow 3s ease-in-out infinite alternate;
 }
-
-/* @keyframes buttonGlow {
-    0% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #e65100,
-            0 0 5px rgba(255, 152, 0, 0.3);
-    }
-
-    100% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #e65100,
-            0 0 15px rgba(255, 152, 0, 0.6);
-    }
-} */
-
 
 
 .btn-secondary:hover {

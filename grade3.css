@@ -416,58 +416,18 @@ body::after {
 
 .info-item span {
     font-weight: bold;
-    color: #4FC3F7;
+    color: #ffffff;
     font-size: 1.5rem;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 0px #008CFF;
 }
 
-/* @keyframes valueGlow {
-    0% {
-        text-shadow:
-            1px 1px 0px #e65100,
-            0 0 5px #ff9800;
-    }
-
-    100% {
-        text-shadow:
-            1px 1px 0px #e65100,
-            0 0 10px #ff9800,
-            0 0 15px #ff5722;
-    }
-} */
 
 /* 승인 섹션 */
 .approval-section {
     margin-bottom: 30px;
 }
 
-/* .approval-section h3 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-    color: #ff9800;
-    text-align: center;
-    letter-spacing: 1px;
-    text-shadow:
-        2px 2px 0px #e65100,
-        0 0 10px #ff9800;
-    animation: sectionTitleGlow 2s ease-in-out infinite alternate;
-} */
-
-/* @keyframes sectionTitleGlow {
-    0% {
-        text-shadow:
-            2px 2px 0px #e65100,
-            0 0 10px #ff9800;
-    }
-
-    100% {
-        text-shadow:
-            2px 2px 0px #e65100,
-            0 0 20px #ff9800,
-            0 0 30px #ff5722;
-    }
-} */
 
 .status-card {
     display: flex;
@@ -484,21 +444,7 @@ body::after {
     animation: statusGlow 3s ease-in-out infinite alternate;
 }
 
-/* @keyframes statusGlow {
-    0% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #ff9800,
-            0 0 10px rgba(255, 152, 0, 0.3);
-    }
 
-    100% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #ff9800,
-            0 0 20px rgba(255, 152, 0, 0.6);
-    }
-} */
 
 .status-card.approved {
     background: #1a3f1a;
@@ -585,23 +531,6 @@ body::after {
     text-transform: uppercase;
     animation: buttonGlow 3s ease-in-out infinite alternate;
 }
-
-/* @keyframes buttonGlow {
-    0% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #e65100,
-            0 0 5px rgba(255, 152, 0, 0.3);
-    }
-
-    100% {
-        box-shadow:
-            0 0 0 3px #2d1b0f,
-            0 6px 0 0 #e65100,
-            0 0 15px rgba(255, 152, 0, 0.6);
-    }
-} */
-
 
 
 .btn-secondary:hover {

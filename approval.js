@@ -1,6 +1,23 @@
 
+// 전역 오디오 객체 생성
+let successAudio = null;
+
 window.addEventListener('DOMContentLoaded', function () {
-    const name = sessionStorage.getItem('studentName') || '이윤아';
+    // 오디오 미리 로드
+    successAudio = new Audio('인증사운드.mp3');
+    successAudio.volume = 0.7;
+    successAudio.preload = 'auto';
+
+    // 오디오 로드 상태 확인
+    successAudio.addEventListener('canplaythrough', () => {
+        console.log('오디오 로드 완료');
+    });
+
+    successAudio.addEventListener('error', (e) => {
+        console.log('오디오 로드 실패:', e);
+    });
+
+    const name = sessionStorage.getItem('studentName') || '학생이름';
     const grade = sessionStorage.getItem('grade') || '';
     const classNum = sessionStorage.getItem('classNum') || '';
     const studentNum = sessionStorage.getItem('studentNum') || '';
@@ -54,11 +71,42 @@ function redirectToApprovalPage(studentId) {
         return;
     }
 
-    sessionStorage.setItem('studentName', '이윤아');
-    sessionStorage.setItem('grade', parsed.grade);
-    sessionStorage.setItem('classNum', parsed.classNum);
-    sessionStorage.setItem('studentNum', parsed.studentNum);
-    location.href = `grade${parsed.grade}.html`;
+    // 인증 성공 시 효과음 재생
+    if (successAudio) {
+
+        successAudio.currentTime = 0;
+        successAudio.play().then(() => {
+
+            setTimeout(() => {
+                successAudio.pause();
+                successAudio.currentTime = 0;
+            }, 600);
+
+
+            setTimeout(() => {
+                sessionStorage.setItem('studentName', '학생이름');
+                sessionStorage.setItem('grade', parsed.grade);
+                sessionStorage.setItem('classNum', parsed.classNum);
+                sessionStorage.setItem('studentNum', parsed.studentNum);
+                location.href = `grade${parsed.grade}.html`;
+            }, 500);
+        }).catch(e => {
+            console.log('오디오 재생 실패:', e);
+
+            sessionStorage.setItem('studentName', '학생이름');
+            sessionStorage.setItem('grade', parsed.grade);
+            sessionStorage.setItem('classNum', parsed.classNum);
+            sessionStorage.setItem('studentNum', parsed.studentNum);
+            location.href = `grade${parsed.grade}.html`;
+        });
+    } else {
+
+        sessionStorage.setItem('studentName', '학생이름');
+        sessionStorage.setItem('grade', parsed.grade);
+        sessionStorage.setItem('classNum', parsed.classNum);
+        sessionStorage.setItem('studentNum', parsed.studentNum);
+        location.href = `grade${parsed.grade}.html`;
+    }
 }
 
 // index.html에서 실행
